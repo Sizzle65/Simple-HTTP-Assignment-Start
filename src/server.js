@@ -4,7 +4,7 @@ const textHandler = require('./textResponses.js');
 const jsonHandler = require('./jsonResponses.js');
 const imageHandler = require('./imageResponses.js');
 
-const port = process.env.port || process.env.NODE_PORT || 3000;
+const port = 3000;
 
 const onRequest = (request, response) => {
   console.log(request.url);
@@ -37,6 +37,6 @@ const onRequest = (request, response) => {
   }
 };
 
-http.createServer(onRequest).listen(port);
+http.createServer(onRequest).listen(process.env.port || port);
 
 console.log(`Listening on 127.0.0.1: ${port}`);
